@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "cypherize"
+version = "0.1.0"
+description = ""
+authors = ["Dom Weldon <dominic.weldon@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.10"
+pydantic = "^1.9.0"
+networkx = "^2.7.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.1.0"
+isort = "^5.10.1"
+bpython = "^0.22.1"
+pytest = "^7.0.1"
+flake8 = "^4.0.1"
+Sphinx = "^4.4.0"
+rich = "^12.0.0"
+pytype = "^2022.3.8"
+pyre-check = "^0.9.10"
+sphinx_materialdesign_theme = "^0.1.11"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

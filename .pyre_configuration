@@ -1,0 +1,8 @@
+{
+  "source_directories": [
+    "cypherize",
+    "examples",
+    "test"
+  ],
+  "taint_models_path": "/home/domweldon/Documents/opensoruce/cypherize/.venv/lib"
+}
