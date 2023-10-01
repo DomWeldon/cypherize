@@ -1,26 +1,27 @@
-[tool.poetry]
+[project]
 name = "cypherize"
 version = "0.1.0"
-description = ""
-authors = ["Dom Weldon <dominic.weldon@gmail.com>"]
-
-[tool.poetry.dependencies]
-python = ">=3.8,<3.10"
-pydantic = "^1.9.0"
-networkx = "^2.7.1"
-
-[tool.poetry.dev-dependencies]
-black = "^22.1.0"
-isort = "^5.10.1"
-bpython = "^0.22.1"
-pytest = "^7.0.1"
-flake8 = "^4.0.1"
-Sphinx = "^4.4.0"
-rich = "^12.0.0"
-pytype = "^2022.3.8"
-pyre-check = "^0.9.10"
-sphinx_materialdesign_theme = "^0.1.11"
+description = "Use class decorators to define your Neo4j Graph Data Model, automatically build queries and hydrate pydantic models."
+authors = [
+    {name = "Dom Weldon", email = "dominic.weldon@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pdm-multirun>=0.3.1",
+    "mkdocs>=1.5.3",
+    "pytest>=7.4.2",
+    "black>=23.9.1",
+    "ruff>=0.0.291",
+    "isort>=5.12.0",
+    "bandit>=1.7.5",
+    "security>=1.0.1",
+]

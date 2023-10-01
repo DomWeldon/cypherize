@@ -14,52 +14,52 @@ help:
 
 .PHONY: docs-auto
 docs-auto:
-	poetry run sphinx-apidoc -o docs/source/API cypherize -f --module-first --no-headings
+	pdm run sphinx-apidoc -o docs/source/API cypherize -f --module-first --no-headings
 
 .PHONY: docs-build
 docs-build:
-	poetry run sphinx-build docs/source docs/build
+	pdm run sphinx-build docs/source docs/build
 
 .PHONY: docs-serve
 docs-serve:
-	poetry run python -m http.server 8001 --directory=docs/build
+	pdm run python -m http.server 8001 --directory=docs/build
 
 docs: docs-auto docs-build browser-project-docs docs-serve
 
 .PHONY: fix
 fix:
-	poetry run black cypherize tests
-	poetry run isort .
+	pdm run black cypherize tests
+	pdm run isort .
 
 .PHONY: format
 format:
-	@echo "Running black" && poetry run black --check cypherize tests || exit 1
+	@echo "Running black" && pdm run black --check cypherize tests || exit 1
 
 .PHONE: check
 check:
-	@echo "Running Type Checks using MyPy" && poetry run mypy . || exit 1
+	@echo "Running Type Checks using MyPy" && pdm run mypy . || exit 1
 
 .PHONY: lint
 lint:
-	@echo "Running flake8" && poetry run flake8 app || exit 1
+	@echo "Running flake8" && pdm run flake8 app || exit 1
 
 .PHONY: repl
 repl:
-	poetry run bpython
+	pdm run bpython
 
 .PHONY: setup
 setup:
 	poetry install
 	direnv allow
-	poetry run pre-commit install
+	pdm run pre-commit install
 
 .PHONY: browser-api-docs
 browser-api-docs:
-	poetry run python -m webbrowser "http://localhost:8000/docs"
+	pdm run python -m webbrowser "http://localhost:8000/docs"
 
 .PHONY: browser-project-docs
 browser-project-docs:
-	poetry run python -m webbrowser "http://localhost:8001"
+	pdm run python -m webbrowser "http://localhost:8001"
 
 init: \
 	setup \
@@ -69,12 +69,12 @@ init: \
 
 .PHONY: sort
 sort:
-	@echo "Running Isort" && poetry run isort . -c || exit 1
+	@echo "Running Isort" && pdm run isort . -c || exit 1
 
 .PHONY: test
 test:
-	poetry run py.test tests
+	pdm run py.test tests
 
 .PHONY: jotter
 jotter:
-	poetry run python jotter.py
+	pdm run python jotter.py
